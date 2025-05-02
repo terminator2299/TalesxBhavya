@@ -5,7 +5,7 @@ Welcome to **Tales x Bhavya** – a personal blog where I share my thoughts, sto
 
 ## 🌐 Website
 
-Visit the blog: [Tales x Bhavya](https://your-website-link.com)  
+Visit the blog: [Tales x Bhavya](https://terminator2299.github.io/TalesxBhavya/))  
 (*Replace with your actual blog URL*)
 
 ## 🚀 Getting Started
