@@ -3,14 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hehe</title>
+    <title>Bhavya's Blog</title>
+
+    <!-- Tailwind CSS via CDN -->
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script
-      id="MathJax-script"
-      async
-      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
-    ></script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- MathJax (if needed) -->
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-4VP1VKLPKJ"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -18,67 +22,74 @@
         dataLayer.push(arguments);
       }
       gtag("js", new Date());
-
       gtag("config", "G-4VP1VKLPKJ");
     </script>
-    <stylesheet src="./css/main-page.css"></stylesheet>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./css/main-page.css" />
   </head>
-<body class="bg-gradient-to-r from-blue-100 via-purple-100 to-pink-100 w-full max-w-[90%] md:w-[43%] mx-auto shadow-lg rounded-lg p-6">
-    <nav class="mt-6">
-        <div>
-            <h1 class="font-serif text-5xl text-center text-purple-800 font-bold">Bhavya's Blog</h1>
-            <div class="mt-8 flex flex-wrap justify-center gap-8">
-                <a
-                    href="index.html"
-                    class="relative text-purple-700 text-lg font-medium after:content-[''] after:absolute after:w-0 after:h-[3px] after:bg-purple-700 after:bottom-[-6px] after:left-0 hover:after:w-full after:transition-all after:duration-300"
-                    >Home</a
-                >
-                <a
-                    href="./blogs/blogs.html"
-                    class="relative text-purple-700 text-lg font-medium after:content-[''] after:absolute after:w-0 after:h-[3px] after:bg-purple-700 after:bottom-[-6px] after:left-0 hover:after:w-full after:transition-all after:duration-300"
-                    >Blogs</a
-                >
-                <a
-                    href="./research-talks/research.html"
-                    class="relative text-purple-700 text-lg font-medium after:content-[''] after:absolute after:w-0 after:h-[3px] after:bg-purple-700 after:bottom-[-6px] after:left-0 hover:after:w-full after:transition-all after:duration-300"
-                    >Research Talks</a
-                >
-            </div>
+
+  <body class="bg-gradient-to-r from-blue-100 via-purple-100 to-pink-100 min-h-screen">
+    <div class="max-w-3xl mx-auto p-6 shadow-xl bg-white/70 backdrop-blur-sm rounded-xl mt-10">
+      <!-- Navigation -->
+      <nav class="text-center mb-10">
+        <h1 class="font-serif text-5xl text-purple-800 font-bold">Bhavya's Blog</h1>
+        <div class="mt-6 flex flex-wrap justify-center gap-8">
+          <a
+            href="index.html"
+            class="relative text-purple-700 text-lg font-medium hover:underline"
+            >Home</a
+          >
+          <a
+            href="./blogs/blogs.html"
+            class="relative text-purple-700 text-lg font-medium hover:underline"
+            >Blogs</a
+          >
+          <a
+            href="./research-talks/research.html"
+            class="relative text-purple-700 text-lg font-medium hover:underline"
+            >Research Talks</a
+          >
         </div>
-    </nav>
+      </nav>
 
-    <hr class="mt-6 border-purple-300" />
+      <hr class="border-purple-300 mb-10" />
 
-    <section class="mt-10 text-center">
-        <h1 class="text-xl text-gray-800">
-            Hi, myself <span class="font-semibold text-purple-800">Bhavya Khandelwal</span>
-        </h1>
-        <p class="mt-4 text-lg text-gray-700 leading-relaxed">
-            An Engineer who loves to explore Machine Learning and Core UI concepts. I spend most of my time learning from repositories or building cool projects.
+      <!-- Hero Section -->
+      <section class="text-center space-y-4">
+        <img
+          src="../blogs/assets/profile.png"
+          alt="Bhavya Avatar"
+          class="w-24 h-24 mx-auto rounded-full shadow-lg hover:scale-105 transition-transform duration-300"
+        />
+        <h2 class="text-2xl font-bold text-gray-800">
+          Hi, I’m <span class="text-purple-700">Bhavya Khandelwal</span>
+        </h2>
+        <p class="text-lg text-gray-700 max-w-xl mx-auto">
+          An engineer passionate about Machine Learning and clean UI/UX design. I love exploring open-source repositories and building meaningful projects.
         </p>
-        <p class="mt-4 text-lg text-gray-700 leading-relaxed">
-            Here are my socials, feel free to connect with me!
-        </p>
+        <p class="text-lg text-gray-700">Let's connect through my socials!</p>
+      </section>
 
-        <hr class="my-8 border-purple-300" />
+      <hr class="my-10 border-purple-300" />
 
-        <div class="flex flex-wrap gap-6 justify-center">
-            <a
-                href="https://x.com/Bhavya2299"
-                class="relative text-purple-700 text-lg font-semibold after:content-[''] after:absolute after:w-0 after:h-[3px] after:bg-purple-700 after:bottom-[-6px] after:left-0 hover:after:w-full after:transition-all after:duration-300"
-                >Twitter</a
-            >
-            <a
-                href="https://github.com/terminator2299"
-                class="relative text-purple-700 text-lg font-semibold after:content-[''] after:absolute after:w-0 after:h-[3px] after:bg-purple-700 after:bottom-[-6px] after:left-0 hover:after:w-full after:transition-all after:duration-300"
-                >Github</a
-            >
-            <a
-                href="https://www.linkedin.com/in/bhavya-khandelwal"
-                class="relative text-purple-700 text-lg font-semibold after:content-[''] after:absolute after:w-0 after:h-[3px] after:bg-purple-700 after:bottom-[-6px] after:left-0 hover:after:w-full after:transition-all after:duration-300"
-                >LinkedIn</a
-            >
-        </div>
-    </section>
-</body>
+      <!-- Social Links -->
+      <div class="flex flex-wrap justify-center gap-6 text-lg font-semibold text-purple-700">
+        <a href="https://x.com/Bhavya2299" class="flex items-center gap-2 hover:text-purple-900 transition-colors">
+          <i data-lucide="twitter" class="w-5 h-5"></i> Twitter
+        </a>
+        <a href="https://github.com/terminator2299" class="flex items-center gap-2 hover:text-purple-900 transition-colors">
+          <i data-lucide="github" class="w-5 h-5"></i> GitHub
+        </a>
+        <a href="https://www.linkedin.com/in/bhavya-khandelwal" class="flex items-center gap-2 hover:text-purple-900 transition-colors">
+          <i data-lucide="linkedin" class="w-5 h-5"></i> LinkedIn
+        </a>
+      </div>
+    </div>
+
+    <!-- Initialize Lucide Icons -->
+    <script>
+      lucide.createIcons();
+    </script>
+  </body>
 </html>
