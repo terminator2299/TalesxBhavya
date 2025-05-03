@@ -1,0 +1,53 @@
+/* main-page.css */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    scroll-behavior: smooth;
+  }
+  
+  a {
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+  }
+  
+  a:hover {
+    color: #6b21a8;
+    text-shadow: 0 0 2px #6b21a8;
+  }
+  
+  img {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  h1, h2, h3 {
+    font-weight: bold;
+    color: #4c1d95;
+    margin-bottom: 0.5rem;
+  }
+  
+  section {
+    animation: fadeInUp 0.7s ease both;
+  }
+  
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  footer {
+    text-align: center;
+    color: #666;
+    font-size: 0.9rem;
+    margin-top: 3rem;
+    padding-bottom: 1rem;
+  }
