@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nlp_DocExtraction - Document Extraction for NLP</title>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script
+      id="MathJax-script"
+      async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+    ></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4VP1VKLPKJ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-4VP1VKLPKJ");
+    </script>
+  </head>
+  <body class="bg-orange-100 w-full max-w-[90%] md:w-[50%] mx-auto">
+    <nav class="mt-6">
+      <div>
+        <h1 class="font-serif text-4xl">Bhavya's Blog</h1>
+        <div class="mt-5 flex flex-wrap gap-5">
+          <a href="../index.html" class="relative after:content-[''] after:absolute after:w-0 after:h-[2px] after:bg-black after:bottom-[-4px] after:left-0 hover:after:w-full after:transition-all after:duration-300">Home</a>
+          <a href="../blogs/blogs.html" class="relative after:content-[''] after:absolute after:w-0 after:h-[2px] after:bg-black after:bottom-[-4px] after:left-0 hover:after:w-full after:transition-all after:duration-300">Blogs</a>
+          <a href="./research.html" class="relative after:content-[''] after:absolute after:w-0 after:h-[2px] after:bg-black after:bottom-[-4px] after:left-0 hover:after:w-full after:transition-all after:duration-300">Research Talks</a>
+        </div>
+      </div>
+    </nav>
+
+    <hr class="mt-3" />
+
+    <div class="mt-2">
+      <h1 class="text-4xl mt-[57px] mb-3 font-serif">
+        DocExtract - Document Information Extraction System
+      </h1>
+      <span class="text-sm text-gray-500">6th March, 2025</span>
+
+      <section class="mt-6 font-serif text-lg space-y-6">
+        <div>
+          <h2 class="text-2xl font-bold mb-2">1. Tools and Models Chosen</h2>
+          <p>To build an efficient, cost-effective, and accurate document information extraction and query system, the following tools and models were selected:</p>
+
+          <h3 class="text-xl font-semibold mt-4">1.1 Tesseract OCR</h3>
+          <ul class="list-disc list-inside ml-5">
+            <li><strong>Reasoning:</strong> Open-source, free, and works offline with good accuracy for printed text.</li>
+            <li><strong>Limitation:</strong> Struggles with handwritten text, low-quality images, and requires manual preprocessing.</li>
+            <li><strong>Alternative:</strong> PaddleOCR for better performance.</li>
+          </ul>
+
+          <h3 class="text-xl font-semibold mt-4">1.2 NLP Models</h3>
+
+          <h4 class="font-medium mt-2">A) SpaCy (Rule-Based Matching & NER)</h4>
+          <ul class="list-disc list-inside ml-5">
+            <li><strong>Reasoning:</strong> Lightweight, fast, CPU-optimized.</li>
+            <li><strong>Limitation:</strong> Needs manual rule definitions, struggles with complex queries.</li>
+          </ul>
+
+          <h4 class="font-medium mt-2">B) Hugging Face DistilBERT</h4>
+          <ul class="list-disc list-inside ml-5">
+            <li><strong>Reasoning:</strong> Contextual transformer with lower inference cost than BERT.</li>
+            <li><strong>Limitation:</strong> Needs fine-tuning for domain-specific use.</li>
+          </ul>
+
+          <h4 class="font-medium mt-2">C) Haystack + Elasticsearch/FAISS</h4>
+          <ul class="list-disc list-inside ml-5">
+            <li><strong>Reasoning:</strong> Enables semantic search and scalable document QA.</li>
+            <li><strong>Limitation:</strong> Adds infrastructure complexity.</li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="text-2xl font-bold mb-2">1.2.1 Combined Alternatives</h2>
+
+          <div class="p-4 bg-green-200 rounded-lg shadow-sm">
+            <h4 class="font-semibold">📌 Flow A:</h4>
+            <ol class="list-decimal list-inside ml-5">
+              <li>Retrieve relevant documents → FAISS/Elasticsearch</li>
+              <li>Embed documents & query → SentenceTransformers (v2)</li>
+              <li>Generate answer → T5 or GPT with retrieved context</li>
+            </ol>
+          </div>
+
+          <div class="p-4 bg-green-100 mt-3 rounded-lg shadow-sm">
+            <h4 class="font-semibold">📌 Flow B:</h4>
+            <ol class="list-decimal list-inside ml-5">
+              <li>Run NER → Extract entities (e.g., Invoice ID, Date)</li>
+              <li>Index entities → FAISS/Elasticsearch</li>
+              <li>Query entities → Retrieve documents using dense/keyword retrieval</li>
+              <li>Generate response → Use a small generative model</li>
+            </ol>
+          </div>
+        </div>
+
+        <div>
+          <h2 class="text-2xl font-bold mt-6">Limitations</h2>
+          <ul class="list-disc list-inside ml-5">
+            <li>OCR issues with low-res images, handwriting</li>
+            <li>Transformers can be computationally expensive</li>
+            <li>Rule-based NER requires manual updates</li>
+            <li>Cloud OCR (e.g., Google Vision) has privacy concerns</li>
+            <li>Infrastructure complexity for Haystack + Elasticsearch</li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="text-2xl font-bold mt-6">Future Recommendations</h2>
+          <ul class="list-disc list-inside ml-5">
+            <li>Adopt PaddleOCR and improve image preprocessing</li>
+            <li>Fine-tune DistilBERT or build a custom RAG pipeline</li>
+            <li>Use containerized deployment with lightweight models</li>
+            <li>Ensure compliance via RBAC, encryption, and on-prem solutions</li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="text-2xl font-bold mt-6">🧪 Implementation Link</h2>
+          <p>Some prototype demos on different models using raw data: <a href="https://github.com/terminator2299/Nlp_Research" class="text-blue-600 underline">Click here</a></p>
+        </div>
+      </section>
+    </div>
+
+    <hr class="my-10" />
+    <footer class="my-8 text-center font-serif text-gray-600">
+      <p>Crafted with ❤️ by Bhavya Khandelwal</p>
+    </footer>
+  </body>
+</html>
