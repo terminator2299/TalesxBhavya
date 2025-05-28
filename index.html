@@ -1,26 +1,21 @@
 <!DOCTYPE html>
-
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bhavya's Blog</title>
 
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
 
-<!-- Tailwind CSS via CDN -->
-<script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
 
-<!-- Lucide Icons -->
-<script src="https://unpkg.com/lucide@latest"></script>
+    <!-- MathJax (if needed) -->
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
-<!-- MathJax (if needed) -->
-<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-
-
-<!-- Custom CSS -->
-<link rel="stylesheet" href="./css/main-page.css" />
-
-
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./css/main-page.css" />
   </head>
 
   <body class="bg-gradient-to-r from-blue-100 via-purple-100 to-pink-100 min-h-screen">
@@ -47,42 +42,55 @@
         </div>
       </nav>
 
+      <hr class="border-purple-300 mb-10" />
 
-  <hr class="border-purple-300 mb-10" />
+      <!-- Hero Section -->
+      <section class="text-center space-y-4">
+        <img
+          src="https://raw.githubusercontent.com/terminator2299/TalesxBhavya/main/blogs/assets/profile.png"
+          alt="Bhavya's Profile Image"
+          class="w-24 h-24 mx-auto rounded-full shadow-lg hover:scale-105 transition-transform duration-300"
+        />
+        <h2 class="text-2xl font-bold text-gray-800">
+          Hi, I’m <span class="text-purple-700">Bhavya Khandelwal</span>
+        </h2>
+        <p class="text-lg text-gray-700 max-w-xl mx-auto">
+          An engineer passionate about Machine Learning and clean UI/UX design. I love exploring open-source repositories and building meaningful projects.
+        </p>
+        <p class="text-lg text-gray-700">Let's connect through my socials!</p>
+      </section>
 
-  <!-- Hero Section -->
-  <section class="text-center space-y-4">
-    <img src="https://raw.githubusercontent.com/terminator2299/TalesxBhavya/main/blogs/assets/profile.png" alt="Bhavya's Profile Image" class="w-24 h-24 mx-auto rounded-full shadow-lg hover:scale-105 transition-transform duration-300" />
-    <h2 class="text-2xl font-bold text-gray-800">
-      Hi, I’m <span class="text-purple-700">Bhavya Khandelwal</span>
-    </h2>
-    <p class="text-lg text-gray-700 max-w-xl mx-auto">
-      An engineer passionate about Machine Learning and clean UI/UX design. I love exploring open-source repositories and building meaningful projects.
-    </p>
-    <p class="text-lg text-gray-700">Let's connect through my socials!</p>
-  </section>
+      <hr class="my-10 border-purple-300" />
 
-  <hr class="my-10 border-purple-300" />
+      <!-- Social Links -->
+      <div class="flex flex-wrap justify-center gap-6 text-lg font-semibold text-purple-700">
+        <a href="https://x.com/Bhavya2299" class="flex items-center gap-2 hover:text-purple-900 transition-colors">
+          <i data-lucide="twitter" class="w-5 h-5"></i> X
+        </a>
+        <a href="https://github.com/terminator2299" class="flex items-center gap-2 hover:text-purple-900 transition-colors">
+          <i data-lucide="github" class="w-5 h-5"></i> GitHub
+        </a>
+        <a href="https://www.linkedin.com/in/bhavya-khandelwal" class="flex items-center gap-2 hover:text-purple-900 transition-colors">
+          <i data-lucide="linkedin" class="w-5 h-5"></i> LinkedIn
+        </a>
+      </div>
+    </div>
 
-  <!-- Social Links -->
-  <div class="flex flex-wrap justify-center gap-6 text-lg font-semibold text-purple-700">
-    <a href="https://x.com/Bhavya2299" class="flex items-center gap-2 hover:text-purple-900 transition-colors">
-      <i data-lucide="twitter" class="w-5 h-5"></i> Twitter
-    </a>
-    <a href="https://github.com/terminator2299" class="flex items-center gap-2 hover:text-purple-900 transition-colors">
-      <i data-lucide="github" class="w-5 h-5"></i> GitHub
-    </a>
-    <a href="https://www.linkedin.com/in/bhavya-khandelwal" class="flex items-center gap-2 hover:text-purple-900 transition-colors">
-      <i data-lucide="linkedin" class="w-5 h-5"></i> LinkedIn
-    </a>
-  </div>
-</div>
+    <!-- Footer -->
+    <footer class="text-center text-sm text-gray-600 mt-10 mb-4">
+      <div class="flex flex-col items-center gap-2">
+        <div class="flex items-center gap-2 text-purple-700">
+          <i data-lucide="feather" class="w-4 h-4"></i>
+          <span class="font-semibold">Bhavya Khandelwal</span>
+        </div>
+        <span class="text-gray-500">&copy; 2025. All rights reserved.</span>
+       
+      </div></div>
+    </footer>
 
-<!-- Initialize Lucide Icons -->
-<script>
-  lucide.createIcons();
-</script>
-
-
+    <!-- Initialize Lucide Icons -->
+    <script>
+      lucide.createIcons();
+    </script>
   </body>
 </html>
