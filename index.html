@@ -18,27 +18,38 @@
     <link rel="stylesheet" href="./css/main-page.css" />
   </head>
 
-  <body class="bg-gradient-to-r from-blue-100 via-purple-100 to-pink-100 min-h-screen">
+  <body class="bg-gradient-to-r from-blue-100 via-purple-100 to-pink-100 min-h-screen relative">
+
+    <!-- Floating Quote Box (Top Right) -->
+    <div id="floatingQuote" class="fixed top-6 right-4 z-40 max-w-sm bg-gradient-to-br from-purple-100 via-white to-pink-100 shadow-2xl backdrop-blur-xl rounded-2xl border border-purple-200 hidden animate-fade-in transition-all duration-500 group hover:scale-105 hover:shadow-pink-200">
+      <div class="flex items-start gap-3">
+        <div class="flex-shrink-0 mt-1">
+          <i data-lucide="quote" class="w-6 h-6 text-purple-400 animate-bounce-slow"></i>
+        </div>
+        <div>
+          <p id="quoteText" class="text-base italic text-gray-800 leading-snug transition-colors duration-300"></p>
+        </div>
+      </div>
+    </div>
+    <style>
+      .animate-bounce-slow {
+        animation: bounceSlow 2.5s infinite;
+      }
+      @keyframes bounceSlow {
+        0%, 100% { transform: translateY(0);}
+        50% { transform: translateY(-8px);}
+      }
+    </style>
+
+    <!-- Main Content -->
     <div class="max-w-3xl mx-auto p-6 shadow-xl bg-white/70 backdrop-blur-sm rounded-xl mt-10">
       <!-- Navigation -->
       <nav class="text-center mb-10">
         <h1 class="font-serif text-5xl text-purple-800 font-bold">Bhavya's Blog</h1>
         <div class="mt-6 flex flex-wrap justify-center gap-8">
-          <a
-            href="index.html"
-            class="relative text-purple-700 text-lg font-medium hover:underline"
-            >Home</a
-          >
-          <a
-            href="./blogs/blogs.html"
-            class="relative text-purple-700 text-lg font-medium hover:underline"
-            >Blogs</a
-          >
-          <a
-            href="./research-talks/research.html"
-            class="relative text-purple-700 text-lg font-medium hover:underline"
-            >Research Talks</a
-          >
+          <a href="index.html" class="relative text-purple-700 text-lg font-medium hover:underline">Home</a>
+          <a href="./blogs/blogs.html" class="relative text-purple-700 text-lg font-medium hover:underline">Blogs</a>
+          <a href="./research-talks/research.html" class="relative text-purple-700 text-lg font-medium hover:underline">Research Talks</a>
         </div>
       </nav>
 
@@ -84,13 +95,45 @@
           <span class="font-semibold">Bhavya Khandelwal</span>
         </div>
         <span class="text-gray-500">&copy; 2025. All rights reserved.</span>
-       
-      </div></div>
+      </div>
     </footer>
 
-    <!-- Initialize Lucide Icons -->
+    <!-- Scripts -->
     <script>
       lucide.createIcons();
+
+      async function fetchQuote() {
+        try {
+          const res = await fetch("https://api.quotable.io/random");
+          const data = await res.json();
+          const quote = `"${data.content}" — ${data.author}`;
+          document.getElementById("quoteText").textContent = quote;
+        } catch (e) {
+          document.getElementById("quoteText").textContent =
+            `"Be yourself; everyone else is already taken." — Oscar Wilde`;
+        }
+        document.getElementById("floatingQuote").classList.remove("hidden");
+      }
+
+      window.addEventListener("DOMContentLoaded", fetchQuote);
     </script>
+
+    <!-- Tailwind Animation Style -->
+    <style>
+      .animate-fade-in {
+        animation: fadeIn 1.2s ease-in-out;
+      }
+
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
   </body>
 </html>
