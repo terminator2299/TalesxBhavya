@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>How I Built My Own AutoML System</title>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script
+      id="MathJax-script"
+      async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+    ></script>
+  </head>
+  <body class="bg-orange-100 w-full max-w-[90%] md:w-[50%] mx-auto">
+    <nav class="mt-6">
+      <div>
+        <h1 class="font-serif text-4xl">Bhavya's Blog</h1>
+        <div class="mt-5 flex flex-wrap gap-5">
+          <a href="../index.html" class="relative after:content-[''] after:absolute after:w-0 after:h-[2px] after:bg-black after:bottom-[-4px] after:left-0 hover:after:w-full after:transition-all after:duration-300">Home</a>
+          <a href="./blogs.html" class="relative after:content-[''] after:absolute after:w-0 after:h-[2px] after:bg-black after:bottom-[-4px] after:left-0 hover:after:w-full after:transition-all after:duration-300">Blogs</a>
+          <a href="../research-talks/research.html" class="relative after:content-[''] after:absolute after:w-0 after:h-[2px] after:bg-black after:bottom-[-4px] after:left-0 hover:after:w-full after:transition-all after:duration-300">Research Talks</a>
+        </div>
+      </div>
+    </nav>
+
+    <hr class="mt-3" />
+
+    <div class="mt-2">
+      <h1 class="text-4xl mt-[57px] mb-3 font-serif">How I Built My Own AutoML System From Scratch</h1>
+      <span class="text-sm text-gray-500">1st June, 2025</span>
+
+      <p class="mt-4 font-serif text-lg">
+        Building an AutoML system from scratch was one of the most challenging yet rewarding projects I've undertaken. I wanted full control and deep understanding of each stage, from data ingestion to model deployment.
+      </p>
+
+      <div class="mt-4 font-serif text-lg">
+        <h2 class="text-2xl font-bold mb-2">✨ Why I Built My Own AutoML System</h2>
+        <ul class="list-disc list-inside">
+          <li>To understand what happens behind the scenes in AutoML tools</li>
+          <li>To control and customize every step</li>
+          <li>To enhance my portfolio with a real-world, modular project</li>
+        </ul>
+      </div>
+
+      <div class="mt-4 font-serif text-lg">
+        <h2 class="text-2xl font-bold mb-2">🛠️ Tools & Technologies Used</h2>
+        <p>Python, pandas, scikit-learn, xgboost, lightgbm, shap, optuna, Flask, React, Render</p>
+      </div>
+
+      <div class="mt-4 font-serif text-lg">
+        <h2 class="text-2xl font-bold mb-2">⚙️ System Architecture Overview</h2>
+        <ol class="list-decimal list-inside">
+          <li>Data Ingestion</li>
+          <li>EDA</li>
+          <li>Preprocessing</li>
+          <li>Model Training</li>
+          <li>Hyperparameter Tuning</li>
+          <li>Evaluation & Leaderboard</li>
+          <li>Model Explainability (SHAP)</li>
+          <li>Prediction Interface</li>
+        </ol>
+      </div>
+
+      <div class="mt-4 font-serif text-lg">
+        <h2 class="text-2xl font-bold mb-2">🏗️ Preprocessing and Modeling</h2>
+        <p>
+          I handled missing values, categorical encoding, scaling, and train-test splits manually.
+          Then trained models like Logistic Regression, Random Forest, XGBoost, LightGBM, SVM.
+        </p>
+      </div>
+
+      <div class="mt-4 font-serif text-lg">
+        <h2 class="text-2xl font-bold mb-2">🔍 Hyperparameter Tuning</h2>
+        <p>
+          I used Optuna for efficient tuning. Each model had its own defined search space and used F1-score or AUC as the optimization metric.
+        </p>
+      </div>
+
+      <div class="mt-4 font-serif text-lg">
+        <h2 class="text-2xl font-bold mb-2">📊 Evaluation and Leaderboard</h2>
+        <p>
+          All models were evaluated using cross-validation and ranked based on their performance. A leaderboard view was built to compare them.
+        </p>
+      </div>
+
+      <div class="mt-4 font-serif text-lg">
+        <h2 class="text-2xl font-bold mb-2">🧠 Model Explainability</h2>
+        <p>
+          SHAP was used to explain predictions and show feature importances, which made the system transparent and trustworthy.
+        </p>
+      </div>
+
+      <div class="mt-4 font-serif text-lg">
+        <h2 class="text-2xl font-bold mb-2">🖥️ CLI & Web Interface</h2>
+        <p>
+          I first created a CLI tool for loading the best model and predicting on new data. Later, I built a Flask app and migrated to React for a polished UI.
+        </p>
+      </div>
+
+      <div class="mt-4 font-serif text-lg">
+        <h2 class="text-2xl font-bold mb-2">🚧 Challenges Faced</h2>
+        <ul class="list-disc list-inside">
+          <li>Preprocessing edge cases (e.g., unseen categories)</li>
+          <li>Maintaining modularity</li>
+          <li>Optimizing tuning loops for speed</li>
+        </ul>
+      </div>
+
+      <div class="mt-4 font-serif text-lg">
+        <h2 class="text-2xl font-bold mb-2">🚀 Future Enhancements</h2>
+        <ul class="list-disc list-inside">
+          <li>Add support for unstructured data</li>
+          <li>Integrate experiment tracking (MLflow/W&B)</li>
+          <li>Dockerize for scalable deployments</li>
+        </ul>
+      </div>
+
+      <div class="mt-6 p-4 border-l-4 border-blue-500 bg-blue-50">
+        <p class="font-serif text-lg text-blue-700 italic">
+          Note: This project helped me deeply understand and appreciate the internal mechanisms of modern AutoML systems.
+        </p>
+      </div>
+
+      <div class="mt-10">
+  <h2 class="text-2xl font-bold mb-2 font-serif">📂 GitHub Repository</h2>
+  <p class="font-serif text-lg">
+    You can explore the full code and project structure here:
+    <a
+      href="https://github.com/terminator2299/Custom-automl"
+      class="text-blue-700 underline hover:text-blue-900"
+      target="_blank"
+      >🔗 github.com/custom-automl-repo</a
+    >
+  </p>
+</div>
+
+
+
+
+      <hr class="my-10" />
+      <footer class="my-8 text-center font-serif text-gray-600">
+        <p>Crafted with ❤️ by Bhavya Khandelwal</p>
+      </footer>
+    </div>
+  </body>
+</html>
