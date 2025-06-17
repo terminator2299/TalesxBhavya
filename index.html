@@ -102,20 +102,7 @@
     <script>
       lucide.createIcons();
 
-      async function fetchQuote() {
-        try {
-          const res = await fetch("https://api.quotable.io/random");
-          const data = await res.json();
-          const quote = `"${data.content}" — ${data.author}`;
-          document.getElementById("quoteText").textContent = quote;
-        } catch (e) {
-          document.getElementById("quoteText").textContent =
-            `"Be yourself; everyone else is already taken." — Oscar Wilde`;
-        }
-        document.getElementById("floatingQuote").classList.remove("hidden");
-      }
-
-      window.addEventListener("DOMContentLoaded", fetchQuote);
+      
     </script>
 
     <!-- Tailwind Animation Style -->
