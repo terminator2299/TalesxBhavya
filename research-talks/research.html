@@ -3,52 +3,79 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Yoyo</title>
-    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <title>Research Talks - Bhavya's Blog</title>
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              // Your custom colors if needed
+            }
+          }
+        }
+      }
+    </script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/main-page.css" />
   </head>
-<body class="bg-gradient-to-r from-blue-100 via-purple-200 to-lilac-200 min-h-screen">
-    <div class="flex items-center justify-center min-h-screen">
-        <div class="bg-white w-full max-w-[90%] md:w-[50%] mx-auto p-6 shadow-lg rounded-lg">
-                <nav class="mt-6">
-                        <div>
-                                <h1 class="font-serif text-4xl text-purple-800 font-bold">Bhavya's Blog</h1>
-                                <div class="mt-5 flex flex-wrap gap-5">
-                                        <a
-                                                href="../index.html"
-                                                class="relative after:content-[''] after:absolute after:w-0 after:h-[2px] after:bg-black after:bottom-[-4px] after:left-0 hover:after:w-full after:transition-all after:duration-300"
-                                                >Home</a
-                                        >
-                                        <a
-                                                href="../blogs/blogs.html"
-                                                class="relative after:content-[''] after:absolute after:w-0 after:h-[2px] after:bg-black after:bottom-[-4px] after:left-0 hover:after:w-full after:transition-all after:duration-300"
-                                                >Blogs</a
-                                        >
-                                        <a
-                                                href="./research.html"
-                                                class="relative after:content-[''] after:absolute after:w-0 after:h-[2px] after:bg-black after:bottom-[-4px] after:left-0 hover:after:w-full after:transition-all after:duration-300"
-                                                >Research Talks</a
-                                        >
-                                </div>
-                        </div>
-                </nav>
 
-                <hr class="mt-3" />
+  <body class="bg-gradient-to-r from-blue-100 via-purple-100 to-pink-100 min-h-screen relative transition-colors duration-300 dark:from-gray-900 dark:via-purple-900 dark:to-gray-800">
+    <!-- Theme Toggle Button (Top Right) -->
+    <button id="themeToggle" class="fixed top-4 right-4 z-50 p-2 rounded-full bg-white/80 dark:bg-gray-800/80 shadow-lg hover:scale-110 transition-all duration-300 backdrop-blur-sm">
+      <i data-lucide="sun" class="w-6 h-6 text-purple-700 dark:hidden"></i>
+      <i data-lucide="moon" class="w-6 h-6 text-purple-300 hidden dark:block"></i>
+    </button>
 
-                <div class="my-8">
-                        <ul class="list-none">
-                                <a href="./Nlp_DocExtraction.html">
-                                        <li
-                                                class="flex justify-between items-center hover:underline underline-offset-4 py-3"
-                                        >
-                                                <span class="text-gray-500 w-[40%]">6th March, 2025<br></span>
-                                                <span class="w-full font-serif text-2xl tracking-wider italic text-black-800 drop-shadow-sm"
-                                                        >NLP DocExtraction </span
-                                                >
-                                        </li>
-                                </a>
-                        </ul>
-                </div>
+    <!-- Main Content -->
+    <div class="max-w-3xl mx-auto p-6 shadow-xl bg-white/70 backdrop-blur-sm rounded-xl mt-10 dark:bg-gray-800/70 dark:shadow-purple-900/20">
+      <!-- Navigation -->
+      <nav class="text-center mb-10">
+        <h1 class="font-serif text-5xl text-purple-800 font-bold dark:text-purple-300">Bhavya's Blog</h1>
+        <div class="mt-6 flex flex-wrap justify-center gap-8">
+          <a href="../index.html" class="relative text-purple-700 text-lg font-medium hover:underline dark:text-purple-300">Home</a>
+          <a href="../blogs/blogs.html" class="relative text-purple-700 text-lg font-medium hover:underline dark:text-purple-300">Blogs</a>
+          <a href="research.html" class="relative text-purple-700 text-lg font-medium hover:underline dark:text-purple-300">Research Talks</a>
         </div>
+      </nav>
+
+      <hr class="border-purple-300 dark:border-purple-700 mb-10" />
+
+      <!-- Research Content -->
+      <div class="my-8">
+        <ul class="list-none space-y-4">
+          <a href="./Nlp_DocExtraction.html" class="block hover:bg-purple-50 dark:hover:bg-gray-700/50 rounded-lg transition-colors duration-200">
+            <li class="flex justify-between items-center p-4">
+              <span class="text-gray-500 dark:text-gray-400 w-[40%]">6th March, 2025</span>
+              <span class="w-full font-serif text-2xl tracking-wider italic text-gray-800 dark:text-gray-200">NLP DocExtraction</span>
+            </li>
+          </a>
+        </ul>
+      </div>
     </div>
-</body>
+
+    <!-- Footer -->
+    <footer class="text-center text-sm text-gray-600 dark:text-gray-400 mt-10 mb-4">
+      <div class="flex flex-col items-center gap-2">
+        <div class="flex items-center gap-2 text-purple-700 dark:text-purple-300">
+          <i data-lucide="feather" class="w-4 h-4"></i>
+          <span class="font-semibold">Bhavya Khandelwal</span>
+        </div>
+        <span class="text-gray-500 dark:text-gray-400">&copy; 2025. All rights reserved.</span>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../js/theme.js"></script>
+    <script>
+      lucide.createIcons();
+    </script>
+  </body>
 </html>
