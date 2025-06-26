@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bhavya's Blog - Vector Databases Made Easy</title>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  </head>
+  <body class="bg-gray-50 w-full max-w-[90%] md:w-[50%] mx-auto">
+    <nav class="mt-6">
+      <div>
+        <h1 class="font-serif text-4xl">Bhavya's Blog</h1>
+        <div class="mt-5 flex flex-wrap gap-5">
+          <a href="../index.html" class="relative after:content-[''] after:absolute after:w-0 after:h-[2px] after:bg-black after:bottom-[-4px] after:left-0 hover:after:w-full after:transition-all after:duration-300">Home</a>
+          <a href="./blogs.html" class="relative after:content-[''] after:absolute after:w-0 after:h-[2px] after:bg-black after:bottom-[-4px] after:left-0 hover:after:w-full after:transition-all after:duration-300">Blogs</a>
+          <a href="../research-talks/research.html" class="relative after:content-[''] after:absolute after:w-0 after:h-[2px] after:bg-black after:bottom-[-4px] after:left-0 hover:after:w-full after:transition-all after:duration-300">Research Talks</a>
+        </div>
+      </div>
+    </nav>
+
+    <hr class="mt-3" />
+
+    <div class="mt-2">
+      <h1 class="text-4xl mt-[57px] mb-3 font-serif">
+        <span class="text-orange-600 font-extrabold">Vector Databases</span>
+        <span class="italic text-gray-700">Made Easy with Real Examples</span>
+      </h1>
+      <span class="text-sm text-gray-500">26th June, 2025</span>
+
+      <section class="mt-6 font-serif text-lg space-y-6">
+        <div>
+          <h2 class="text-2xl font-bold mb-2">1. So... What is a Vector Database?</h2>
+          <p>Alright, imagine trying to find resumes that *"feel similar"* to a job description — not just based on keywords like “Python” or “ETL” but based on meaning.</p>
+          <p>That’s where a <strong>vector database</strong> comes in. It stores content as high-dimensional vectors (numbers!) that represent meaning using embeddings.</p>
+        </div>
+
+        <div>
+          <h2 class="text-2xl font-bold mb-2">2. Let's Get Nerdy: Code Time!</h2>
+          <p>We’ll use <code>sentence-transformers</code> to convert text into embeddings:</p>
+          <pre class="bg-gray-100 p-4 rounded-md text-sm overflow-auto">
+from sentence_transformers import SentenceTransformer
+model = SentenceTransformer('all-MiniLM-L6-v2')
+
+text = "Built scalable data pipelines using Apache Airflow"
+embedding = model.encode(text)
+print(embedding[:5])  # Just showing the first 5 numbers
+          </pre>
+          <p>This returns a long vector (usually 384 or 768 dimensions) that represents the meaning of the text.</p>
+        </div>
+
+        <div>
+          <h2 class="text-2xl font-bold mb-2">3. Storing in a Vector DB (Using ChromaDB)</h2>
+          <p>Now let’s store our resume or job description vector in a vector store. We’ll use <strong>ChromaDB</strong> — easy to use and runs locally.</p>
+          <pre class="bg-gray-100 p-4 rounded-md text-sm overflow-auto">
+import chromadb
+client = chromadb.Client()
+
+collection = client.create_collection("resumes")
+
+collection.add(
+    documents=["Built scalable data pipelines using Apache Airflow"],
+    embeddings=[embedding],
+    ids=["resume_1"]
+)
+          </pre>
+        </div>
+
+        <div>
+          <h2 class="text-2xl font-bold mb-2">4. Searching for Similar Candidates</h2>
+          <p>Say a recruiter types this:</p>
+          <pre class="bg-gray-100 p-4 rounded-md text-sm overflow-auto">
+job_desc = "Looking for someone experienced in data engineering and Airflow"
+job_embedding = model.encode(job_desc)
+
+results = collection.query(
+    query_embeddings=[job_embedding],
+    n_results=1
+)
+
+print(results["documents"])
+          </pre>
+          <p>✨ Boom! You just performed a semantic search. The most similar resumes will appear — even if they don’t use the exact words.</p>
+        </div>
+
+        <div>
+          <h2 class="text-2xl font-bold mb-2">5. Real-World Use Cases</h2>
+          <ul class="list-disc list-inside ml-5">
+            <li>⚡ AI Chatbots with memory (context retrieval)</li>
+            <li>🔍 Image or audio similarity search</li>
+            <li>📄 Document Q&A with RAG (Retrieval Augmented Generation)</li>
+            <li>🧠 Smart recommendation systems</li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="text-2xl font-bold mb-2">6. TL;DR</h2>
+          <p>✅ Vector DBs store **meaning**, not keywords.</p>
+          <p>✅ Great for building **AI-driven search, Q&A, and recommendations**.</p>
+          <p>✅ Try it out with open tools like ChromaDB, FAISS, or Weaviate.</p>
+          <p class="mt-4">Want a full tutorial on this? I’ve got a <strong>resume matcher</strong> project using this exact setup. Let me know and I’ll write a step-by-step build guide!</p>
+        </div>
+      </section>
+    </div>
+
+    <hr class="my-10" />
+    <footer class="my-8 text-center font-serif text-gray-600">
+      <p>Crafted with ❤️ by Bhavya Khandelwal</p>
+    </footer>
+  </body>
+</html>
