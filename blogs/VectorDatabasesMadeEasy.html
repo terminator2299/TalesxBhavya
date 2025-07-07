@@ -38,7 +38,7 @@
         <div>
           <h2 class="text-2xl font-bold mb-2">2. Let's Get Nerdy: Code Time!</h2>
           <p>We’ll use <code>sentence-transformers</code> to convert text into embeddings:</p>
-          <pre class="bg-gray-100 p-4 rounded-md text-sm overflow-auto">
+          <pre class="bg-blue-100 p-4 rounded-md text-sm overflow-auto">
 from sentence_transformers import SentenceTransformer
 model = SentenceTransformer('all-MiniLM-L6-v2')
 
@@ -52,7 +52,7 @@ print(embedding[:5])  # Just showing the first 5 numbers
         <div>
           <h2 class="text-2xl font-bold mb-2">3. Storing in a Vector DB (Using ChromaDB)</h2>
           <p>Now let’s store our resume or job description vector in a vector store. We’ll use <strong>ChromaDB</strong> — easy to use and runs locally.</p>
-          <pre class="bg-gray-100 p-4 rounded-md text-sm overflow-auto">
+          <pre class="bg-blue-100 p-4 rounded-md text-sm overflow-auto">
 import chromadb
 client = chromadb.Client()
 
@@ -69,7 +69,7 @@ collection.add(
         <div>
           <h2 class="text-2xl font-bold mb-2">4. Searching for Similar Candidates</h2>
           <p>Say a recruiter types this:</p>
-          <pre class="bg-gray-100 p-4 rounded-md text-sm overflow-auto">
+          <pre class="bg-blue-100 p-4 rounded-md text-sm overflow-auto">
 job_desc = "Looking for someone experienced in data engineering and Airflow"
 job_embedding = model.encode(job_desc)
 
