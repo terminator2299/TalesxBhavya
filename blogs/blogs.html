@@ -136,5 +136,46 @@
         `;
       });
     </script>
+    <!-- Minimal elegant white wipe -->
+    <style>
+      #white-wipe-overlay {
+        position: fixed; left: 0; top: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 9999;
+        background: #fff;
+        opacity: 0;
+        transform: translateX(-100%);
+        transition: opacity 0.18s, transform 0.6s cubic-bezier(.4,0,.2,1);
+      }
+      #white-wipe-overlay.active {
+        pointer-events: auto;
+        opacity: 1;
+        transform: translateX(0);
+      }
+    </style>
+    <div id="white-wipe-overlay"></div>
+    <script>
+      // Select all nav links that should have the transition
+      const wipeOverlay = document.getElementById('white-wipe-overlay');
+      const transitionLinks = [
+        document.querySelector('a[href=\"../index.html\"]'),
+        document.querySelector('a[href=\"blogs.html\"]'),
+        document.querySelector('a[href=\"../research-talks/research.html\"]')
+      ].filter(Boolean);
+
+      transitionLinks.forEach(link => {
+        if (link && wipeOverlay) {
+          link.addEventListener('click', function(e) {
+            // Only animate if navigating to a different page
+            if (window.location.pathname.endsWith(link.getAttribute('href').replace('./','').replace('../',''))) {
+              return; // already on this page
+            }
+            e.preventDefault();
+            wipeOverlay.classList.add('active');
+            setTimeout(() => {
+              window.location.href = link.href;
+            }, 600); // match the transition duration
+          });
+        }
+      });
+    </script>
   </body>
 </html>
