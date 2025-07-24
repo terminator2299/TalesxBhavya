@@ -3,197 +3,195 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bhavya's Blog</title>
-
-    <!-- Tailwind CSS via CDN -->
+    <title>Bhavya Khandelwal | ML Engineer & Blogger</title>
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
         darkMode: 'class',
         theme: {
           extend: {
-            colors: {
-              // Your custom colors if needed
-            }
-          }
-        }
-      }
+            colors: {},
+            boxShadow: {
+              glass: '0 8px 32px 0 rgba(31, 38, 135, 0.18)',
+            },
+          },
+        },
+      };
     </script>
-
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
-
-    <!-- MathJax (if needed) -->
-    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-
-    <!-- Custom CSS -->
     <link rel="stylesheet" href="./css/main-page.css" />
-  </head>
-
-  <body class="bg-gradient-to-r from-blue-100 via-purple-100 to-pink-100 min-h-screen relative transition-colors duration-300 dark:from-gray-900 dark:via-purple-900 dark:to-gray-800">
-    <!-- Theme Toggle Button (Top Right) -->
-    <button id="themeToggle" class="fixed top-4 right-4 z-50 p-2 rounded-full bg-white/80 dark:bg-gray-800/80 shadow-lg hover:scale-110 transition-all duration-300 backdrop-blur-sm">
-      <i data-lucide="sun" class="w-6 h-6 text-purple-700 dark:hidden"></i>
-      <i data-lucide="moon" class="w-6 h-6 text-purple-300 hidden dark:block"></i>
-    </button>
-
-    <!-- Floating Quote Box (Top Right) -->
-    <div id="floatingQuote" class="fixed top-6 right-20 z-40 max-w-sm bg-gradient-to-br from-purple-100 via-white to-pink-100 shadow-2xl backdrop-blur-xl rounded-2xl border border-purple-200 hidden animate-fade-in transition-all duration-500 group hover:scale-105 hover:shadow-pink-200 dark:from-gray-800 dark:via-gray-900 dark:to-purple-900 dark:border-purple-800">
-      <div class="flex items-start gap-3 p-4">
-        <div class="flex-shrink-0 mt-1">
-          <i data-lucide="quote" class="w-6 h-6 text-purple-400 dark:text-purple-300 animate-bounce-slow"></i>
-        </div>
-        <div>
-          <p id="quoteText" class="text-base italic text-gray-800 dark:text-gray-200 leading-snug transition-colors duration-300"></p>
-        </div>
-      </div>
-    </div>
     <style>
-      .animate-bounce-slow {
-        animation: bounceSlow 2.5s infinite;
+      .glass {
+        background: rgba(255,255,255,0.18);
+        box-shadow: 0 8px 32px 0 rgba(31,38,135,0.18);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-radius: 1.5rem;
+        border: 1px solid rgba(255,255,255,0.24);
       }
-      @keyframes bounceSlow {
-        0%, 100% { transform: translateY(0);}
-        50% { transform: translateY(-8px);}
+      .typewriter {
+        display: inline-block;
+        overflow: hidden;
+        border-right: .15em solid #a78bfa;
+        white-space: nowrap;
+        animation: typing 2.5s steps(30, end), blink-caret .75s step-end infinite;
+      }
+      @keyframes typing {
+        from { width: 0 }
+        to { width: 100% }
+      }
+      @keyframes blink-caret {
+        from, to { border-color: transparent }
+        50% { border-color: #a78bfa; }
+      }
+      .carousel::-webkit-scrollbar { display: none; }
+      .icon-btn {
+        @apply rounded-full bg-white/80 shadow-md p-2 hover:scale-110 transition-all;
+      }
+      .dark .icon-btn {
+        @apply bg-gray-900/80;
       }
     </style>
-
-    <!-- Main Content -->
-    <div class="max-w-3xl mx-auto p-6 shadow-xl bg-white/70 backdrop-blur-sm rounded-xl mt-10 dark:bg-gray-800/70 dark:shadow-purple-900/20">
-      <!-- Navigation -->
-      <nav class="text-center mb-10">
-        <h1 class="font-serif text-5xl text-purple-800 font-bold dark:text-purple-300">Bhavya's Blog</h1>
-        <div class="mt-6 flex flex-wrap justify-center gap-8">
-          <a href="index.html" class="relative text-purple-700 text-lg font-medium hover:underline dark:text-purple-300">Home</a>
-          <a href="./blogs/blogs.html" class="relative text-purple-700 text-lg font-medium hover:underline dark:text-purple-300">Blogs</a>
-          <a href="./research-talks/research.html" class="relative text-purple-700 text-lg font-medium hover:underline dark:text-purple-300">Research Talks</a>
+  </head>
+  <body class="min-h-screen bg-gradient-to-br from-[#f0fdfa] via-[#a7f3d0] to-[#c4b5fd] dark:from-gray-900 dark:via-indigo-900 dark:to-emerald-900 transition-colors duration-300">
+    <!-- Hero Section -->
+    <section class="flex flex-col items-center justify-center min-h-screen relative">
+      <div class="glass p-10 flex flex-col items-center gap-6 shadow-glass mt-10">
+        <img src="https://raw.githubusercontent.com/terminator2299/TalesxBhavya/main/blogs/assets/canvas.png" alt="Bhavya's Profile" class="w-32 h-32 rounded-full shadow-lg border-4 border-[#a7f3d0] dark:border-indigo-700" />
+        <h1 class="text-4xl md:text-5xl font-extrabold text-[#3730a3] dark:text-indigo-200">Bhavya Khandelwal</h1>
+        <div class="text-xl md:text-2xl font-medium text-gray-700 dark:text-gray-300">
+          <span class="typewriter">Building with ML, Designing with Heart</span>
         </div>
-      </nav>
-
-      <hr class="border-purple-300 dark:border-purple-700 mb-10" />
-
-      <!-- Hero Section -->
-      <section class="text-center space-y-4">
-        <img
-          src="https://raw.githubusercontent.com/terminator2299/TalesxBhavya/main/blogs/assets/canvas.png"
-          alt="Bhavya's Profile Image"
-          class="w-24 h-24 mx-auto rounded-full shadow-lg hover:scale-105 transition-transform duration-300 dark:shadow-purple-900/50"
-        />
-        <h2 class="text-2xl font-bold text-gray-800 dark:text-gray-200">
-          Hi, I'm <span class="text-purple-700 dark:text-purple-300">Bhavya Khandelwal</span>
-        </h2>
-        <p class="text-lg text-gray-700 dark:text-gray-300 max-w-xl mx-auto">
-          An engineer passionate about Machine Learning and clean UI/UX design. I love exploring open-source repositories and building meaningful projects.
-        </p>
-        <p class="text-lg text-gray-700 dark:text-gray-300">Let's connect through my socials!</p>
-      </section>
-
-      <hr class="my-10 border-purple-300 dark:border-purple-700" />
-
-      <!-- Social Links -->
-      <div class="flex flex-wrap justify-center gap-6 text-lg font-semibold text-purple-700 dark:text-purple-300">
-        <a href="https://x.com/Bhavya2299" class="flex items-center gap-2 hover:text-purple-900 dark:hover:text-purple-200 transition-colors">
-          <i data-lucide="twitter" class="w-5 h-5"></i> X
+        <div class="flex gap-6 mt-2">
+          <a href="https://x.com/Bhavya2299" class="icon-btn" title="X">
+            <i data-lucide="twitter" class="w-7 h-7 text-[#1da1f2]"></i>
+          </a>
+          <a href="https://github.com/terminator2299" class="icon-btn" title="GitHub">
+            <i data-lucide="github" class="w-7 h-7 text-[#181717]"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/bhavya-khandelwal" class="icon-btn" title="LinkedIn">
+            <i data-lucide="linkedin" class="w-7 h-7 text-[#0077b5]"></i>
+          </a>
+        </div>
+      </div>
+      <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+        <i data-lucide="chevron-down" class="w-8 h-8 text-purple-300"></i>
+      </div>
+    </section>
+    <!-- About Me & Fun Fact -->
+    <section class="max-w-2xl mx-auto mt-[-4rem] mb-12 z-10 relative">
+      <div class="glass p-8 flex flex-col md:flex-row items-center gap-6 shadow-glass">
+        <div class="flex-1">
+          <h2 class="text-2xl font-bold text-[#3730a3] dark:text-indigo-200 mb-2">About Me</h2>
+          <p class="text-lg text-gray-700 dark:text-gray-300">I'm an engineer passionate about Machine Learning and clean UI/UX design. I love exploring open-source repositories and building meaningful projects.</p>
+        </div>
+        <div class="flex-1 bg-gradient-to-br from-[#c4b5fd] via-[#a7f3d0] to-[#f0fdfa] dark:from-gray-800 dark:via-indigo-900 dark:to-emerald-900 rounded-xl p-4 shadow-inner">
+          <span class="block text-[#10b981] dark:text-indigo-300 font-semibold mb-1">Fun Fact</span>
+          <span class="italic text-gray-700 dark:text-gray-200">“I can debug code in my dreams (sometimes)!”</span>
+        </div>
+      </div>
+    </section>
+    <!-- Featured Cards -->
+    <section class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16 px-4">
+      <a href="./blogs/Intimetec.html" class="glass p-6 flex flex-col items-center gap-3 shadow-glass hover:scale-105 transition-transform group">
+        <i data-lucide="book-open" class="w-10 h-10 text-[#10b981] group-hover:text-[#3730a3]"></i>
+        <span class="font-bold text-lg text-[#3730a3] dark:text-indigo-100">Latest Blog</span>
+        <span class="text-center text-gray-600 dark:text-gray-300 text-sm">From programming round to personal ground</span>
+        <span class="mt-2 text-xs text-[#a7f3d0]">Read Now →</span>
+      </a>
+      <a href="./blogs/firstrejection.html" class="glass p-6 flex flex-col items-center gap-3 shadow-glass hover:scale-105 transition-transform group">
+        <i data-lucide="star" class="w-10 h-10 text-[#c4b5fd] group-hover:text-[#a7f3d0]"></i>
+        <span class="font-bold text-lg text-[#3730a3] dark:text-indigo-100">Popular Post</span>
+        <span class="text-center text-gray-600 dark:text-gray-300 text-sm">When I Faced my First Big No</span>
+        <span class="mt-2 text-xs text-[#a7f3d0]">Read Now →</span>
+      </a>
+      <a href="./research-talks/Nlp_DocExtraction.html" class="glass p-6 flex flex-col items-center gap-3 shadow-glass hover:scale-105 transition-transform group">
+        <i data-lucide="microscope" class="w-10 h-10 text-[#a7f3d0] group-hover:text-[#10b981]"></i>
+        <span class="font-bold text-lg text-[#3730a3] dark:text-indigo-100">Recent Research</span>
+        <span class="text-center text-gray-600 dark:text-gray-300 text-sm">NLP DocExtraction</span>
+        <span class="mt-2 text-xs text-[#a7f3d0]">Explore →</span>
+      </a>
+      <a href="mailto:bhavyakhandelwal2299@gmail.com" class="glass p-6 flex flex-col items-center gap-3 shadow-glass hover:scale-105 transition-transform group">
+        <i data-lucide="mail" class="w-10 h-10 text-[#a7f3d0] group-hover:text-[#10b981]"></i>
+        <span class="font-bold text-lg text-[#3730a3] dark:text-indigo-100">Contact</span>
+        <span class="text-center text-gray-600 dark:text-gray-300 text-sm">Let's connect for collaboration or a chat!</span>
+        <span class="mt-2 text-xs text-[#a7f3d0]">Say Hi →</span>
+      </a>
+    </section>
+    <!-- Blog Carousel -->
+    <section class="max-w-5xl mx-auto mb-20 px-4">
+      <h2 class="text-2xl font-bold text-purple-800 dark:text-purple-200 mb-4">Recent Blogs</h2>
+      <div class="carousel flex gap-6 overflow-x-auto pb-4">
+        <a href="./blogs/Intimetec.html" class="min-w-[260px] glass p-4 flex flex-col gap-2 shadow-glass hover:scale-105 transition-transform">
+          <span class="font-semibold text-lg text-gray-800 dark:text-gray-100">From programming round to personal ground</span>
+          <span class="text-xs text-gray-500 dark:text-gray-400">4 July 2025</span>
         </a>
-        <a href="https://github.com/terminator2299" class="flex items-center gap-2 hover:text-purple-900 dark:hover:text-purple-200 transition-colors">
-          <i data-lucide="github" class="w-5 h-5"></i> GitHub
+        <a href="./blogs/VectorDatabasesMadeEasy.html" class="min-w-[260px] glass p-4 flex flex-col gap-2 shadow-glass hover:scale-105 transition-transform">
+          <span class="font-semibold text-lg text-gray-800 dark:text-gray-100">Vector Databases -&gt; Made Easy</span>
+          <span class="text-xs text-gray-500 dark:text-gray-400">26 June 2025</span>
         </a>
-        <a href="https://www.linkedin.com/in/bhavya-khandelwal" class="flex items-center gap-2 hover:text-purple-900 dark:hover:text-purple-200 transition-colors">
-          <i data-lucide="linkedin" class="w-5 h-5"></i> LinkedIn
+        <a href="./blogs/HopeHurtsButIStillHope.html" class="min-w-[260px] glass p-4 flex flex-col gap-2 shadow-glass hover:scale-105 transition-transform">
+          <span class="font-semibold text-lg text-gray-800 dark:text-gray-100">Hope Hurts, But I Still Hope</span>
+          <span class="text-xs text-gray-500 dark:text-gray-400">17 June 2025</span>
+        </a>
+        <a href="./blogs/AutoML_experience.html" class="min-w-[260px] glass p-4 flex flex-col gap-2 shadow-glass hover:scale-105 transition-transform">
+          <span class="font-semibold text-lg text-gray-800 dark:text-gray-100">My Experience with building my own AutoML</span>
+          <span class="text-xs text-gray-500 dark:text-gray-400">1 June 2025</span>
+        </a>
+        <a href="./blogs/OvercomingSetBacks.html" class="min-w-[260px] glass p-4 flex flex-col gap-2 shadow-glass hover:scale-105 transition-transform">
+          <span class="font-semibold text-lg text-gray-800 dark:text-gray-100">All the No's I've Got Till Now</span>
+          <span class="text-xs text-gray-500 dark:text-gray-400">12 May 2025</span>
+        </a>
+        <a href="./blogs/EmbrassingInterview.html" class="min-w-[260px] glass p-4 flex flex-col gap-2 shadow-glass hover:scale-105 transition-transform">
+          <span class="font-semibold text-lg text-gray-800 dark:text-gray-100">One Interview I'll Never Forget</span>
+          <span class="text-xs text-gray-500 dark:text-gray-400">14 April 2025</span>
+        </a>
+        <a href="./blogs/firstrejection.html" class="min-w-[260px] glass p-4 flex flex-col gap-2 shadow-glass hover:scale-105 transition-transform">
+          <span class="font-semibold text-lg text-gray-800 dark:text-gray-100">When I Faced my First Big No</span>
+          <span class="text-xs text-gray-500 dark:text-gray-400">14 Jan 2025</span>
+        </a>
+        <a href="./blogs/FraudMail.html" class="min-w-[260px] glass p-4 flex flex-col gap-2 shadow-glass hover:scale-105 transition-transform">
+          <span class="font-semibold text-lg text-gray-800 dark:text-gray-100">That One Fraud Mail</span>
+          <span class="text-xs text-gray-500 dark:text-gray-400">13 Dec 2024</span>
         </a>
       </div>
-    </div>
-
+    </section>
+    <!-- Timeline Section -->
+    <section class="max-w-4xl mx-auto mb-20 px-4">
+      <h2 class="text-2xl font-bold text-purple-800 dark:text-purple-200 mb-6">My Journey</h2>
+      <div class="relative border-l-4 border-purple-300 dark:border-purple-700 pl-8">
+        <div class="mb-10">
+          <div class="absolute -left-5 top-0 bg-purple-500 w-6 h-6 rounded-full border-4 border-white dark:border-gray-900"></div>
+          <div class="text-lg font-semibold text-purple-700 dark:text-purple-300">2025</div>
+          <div class="text-gray-700 dark:text-gray-300">Spoke at NLP DocExtraction research talk.</div>
+        </div>
+        <div class="mb-10">
+          <div class="absolute -left-5 top-24 bg-pink-400 w-6 h-6 rounded-full border-4 border-white dark:border-gray-900"></div>
+          <div class="text-lg font-semibold text-pink-600 dark:text-pink-300">2024</div>
+          <div class="text-gray-700 dark:text-gray-300">Started TalesxBhavya blog and published first ML story.</div>
+        </div>
+        <div class="mb-10">
+          <div class="absolute -left-5 top-48 bg-blue-400 w-6 h-6 rounded-full border-4 border-white dark:border-gray-900"></div>
+          <div class="text-lg font-semibold text-blue-600 dark:text-blue-300">2023</div>
+          <div class="text-gray-700 dark:text-gray-300">Graduated and began my ML engineering journey.</div>
+        </div>
+      </div>
+    </section>
     <!-- Footer -->
-    <footer class="text-center text-sm text-gray-600 dark:text-gray-400 mt-10 mb-4">
+    <footer class="text-center text-sm text-gray-600 dark:text-gray-400 mb-4">
       <div class="flex flex-col items-center gap-2">
         <div class="flex items-center gap-2 text-purple-700 dark:text-purple-300">
           <i data-lucide="feather" class="w-4 h-4"></i>
           <span class="font-semibold">Bhavya Khandelwal</span>
         </div>
         <span class="text-gray-500 dark:text-gray-400">&copy; 2025. All rights reserved.</span>
+        <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;" class="text-purple-500 hover:underline mt-1">Back to Top</a>
       </div>
     </footer>
-
     <!-- Scripts -->
     <script src="./js/theme.js"></script>
-    <script>
-      lucide.createIcons();
-    </script>
-    <script src="https://unpkg.com/@studio-freight/lenis@1.0.38/bundled/lenis.min.js"></script>
-    <script>
-      const lenis = new Lenis({
-        duration: 1.2,
-        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // easeOutExpo
-        smooth: true,
-        smoothTouch: false,
-      });
-
-      function raf(time) {
-        lenis.raf(time);
-        requestAnimationFrame(raf);
-      }
-
-      requestAnimationFrame(raf);
-    </script>
-
-    <!-- Tailwind Animation Style -->
-    <style>
-      .animate-fade-in {
-        animation: fadeIn 1.2s ease-in-out;
-      }
-
-      @keyframes fadeIn {
-        0% {
-          opacity: 0;
-          transform: translateY(-10px);
-        }
-        100% {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-    </style>
-    <!-- Minimal elegant white wipe -->
-    <style>
-      #white-wipe-overlay {
-        position: fixed; left: 0; top: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 9999;
-        background: #fff;
-        opacity: 0;
-        transform: translateX(-100%);
-        transition: opacity 0.18s, transform 0.6s cubic-bezier(.4,0,.2,1);
-      }
-      #white-wipe-overlay.active {
-        pointer-events: auto;
-        opacity: 1;
-        transform: translateX(0);
-      }
-    </style>
-    <div id="white-wipe-overlay"></div>
-    <script>
-      // Select all nav links that should have the transition
-      const wipeOverlay = document.getElementById('white-wipe-overlay');
-      const transitionLinks = [
-        document.querySelector('a[href="./blogs/blogs.html"]'),
-        document.querySelector('a[href="./research-talks/research.html"]'),
-        document.querySelector('a[href="index.html"]')
-      ].filter(Boolean);
-
-      transitionLinks.forEach(link => {
-        if (link && wipeOverlay) {
-          link.addEventListener('click', function(e) {
-            // Only animate if navigating to a different page
-            if (window.location.pathname.endsWith(link.getAttribute('href').replace('./',''))) {
-              return; // already on this page
-            }
-            e.preventDefault();
-            wipeOverlay.classList.add('active');
-            setTimeout(() => {
-              window.location.href = link.href;
-            }, 600); // match the transition duration
-          });
-        }
-      });
-    </script>
+    <script>lucide.createIcons();</script>
   </body>
 </html>
