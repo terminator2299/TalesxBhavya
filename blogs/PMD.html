@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bhavya's Blog - PMD Static Code Analysis</title>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  </head>
+  <body class="bg-gray-50 w-full max-w-[90%] md:w-[50%] mx-auto">
+    <nav class="mt-6">
+      <div>
+        <h1 class="font-serif text-4xl">Bhavya's Blog</h1>
+        <div class="mt-5 flex flex-wrap gap-5">
+          <a href="../index.html" class="relative after:content-[''] after:absolute after:w-0 after:h-[2px] after:bg-black after:bottom-[-4px] after:left-0 hover:after:w-full after:transition-all after:duration-300">Home</a>
+          <a href="./blogs.html" class="relative after:content-[''] after:absolute after:w-0 after:h-[2px] after:bg-black after:bottom-[-4px] after:left-0 hover:after:w-full after:transition-all after:duration-300">Blogs</a>
+          <a href="../research-talks/research.html" class="relative after:content-[''] after:absolute after:w-0 after:h-[2px] after:bg-black after:bottom-[-4px] after:left-0 hover:after:w-full after:transition-all after:duration-300">Research Talks</a>
+        </div>
+      </div>
+    </nav>
+
+    <hr class="mt-3" />
+
+    <div class="mt-2">
+      <h1 class="text-4xl mt-[57px] mb-3 font-serif">
+        <span class="text-orange-600 font-extrabold">PMD</span>
+        <span class="italic text-gray-700">Static Code Analysis for Apex</span>
+      </h1>
+      <span class="text-sm text-gray-500">15th September, 2025</span>
+
+      <section class="mt-6 font-serif text-lg space-y-6">
+        <div>
+          <h2 class="text-2xl font-bold mb-2">1. Why PMD?</h2>
+          <p>
+            Writing Apex code is easy. Writing <em>good Apex code</em> takes discipline. That’s where <strong>PMD</strong> comes in. It’s a static code analysis tool that helps:
+          </p>
+          <ul class="list-disc list-inside ml-5">
+            <li>🔍 Detect code quality issues early</li>
+            <li>📏 Enforce coding standards & best practices</li>
+            <li>🧹 Reduce technical debt by finding error-prone patterns</li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="text-2xl font-bold mb-2">2. Prerequisites</h2>
+          <p>Before you start, make sure you’ve got these set up:</p>
+          <ul class="list-disc list-inside ml-5">
+            <li>☕ Java JDK (8 or later)</li>
+            <li>🛠️ PMD (static code analysis tool)</li>
+            <li>📦 Apex PMD Plugin</li>
+            <li>💻 Your Apex classes downloaded locally</li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="text-2xl font-bold mb-2">3. Installing PMD</h2>
+          <p>Download PMD from the <a href="https://pmd.github.io" class="text-blue-600 underline">official site</a>, extract it, and configure environment variables.</p>
+          <pre class="bg-blue-100 p-4 rounded-md text-sm overflow-auto">
+# Windows example
+Variable name: PMD_HOME
+Variable value: C:\pmd
+
+# Add to PATH
+%PMD_HOME%\bin
+          </pre>
+          <p>Verify with:</p>
+          <pre class="bg-blue-100 p-4 rounded-md text-sm overflow-auto">pmd --version</pre>
+        </div>
+
+        <div>
+          <h2 class="text-2xl font-bold mb-2">4. Custom Ruleset</h2>
+          <p>
+            I used a <code>rules.xml</code> file located in <code>/config/rules.xml</code>.  
+            It checks:
+          </p>
+          <ul class="list-disc list-inside ml-5">
+            <li>Code style & formatting</li>
+            <li>Error-prone patterns</li>
+            <li>Performance issues</li>
+            <li>Apex best practices</li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="text-2xl font-bold mb-2">5. Running PMD</h2>
+          <p>Run PMD from your terminal inside the project root folder:</p>
+          <pre class="bg-blue-100 p-4 rounded-md text-sm overflow-auto">
+pmd check --dir "C:\path\to\classes" --rulesets "C:\path\to\rules.xml" --format csv
+          </pre>
+          <p>To generate a CSV report:</p>
+          <pre class="bg-blue-100 p-4 rounded-md text-sm overflow-auto">
+pmd check --dir "C:\path\to\classes" --rulesets "C:\path\to\rules.xml" --format csv --report-file pmd-report.csv
+          </pre>
+        </div>
+
+        <div>
+          <h2 class="text-2xl font-bold mb-2">6. Report Output</h2>
+          <p>The CSV report includes:</p>
+          <ul class="list-disc list-inside ml-5">
+            <li>📄 File name</li>
+            <li>🔢 Line number</li>
+            <li>⚖️ Rule violated</li>
+            <li>📝 Description</li>
+            <li>🔥 Priority/Severity</li>
+          </ul>
+          <p>Example:</p>
+          <pre class="bg-blue-100 p-4 rounded-md text-sm overflow-auto">
+"File","Line","Rule","Priority","Description"
+"ServiceAppointmentHandler.cls","45","AvoidDmlStatementsInLoops","1","DML inside loops can cause governor limit issues."
+          </pre>
+          <p>
+            Priority ranges from <strong>1 (Critical)</strong> to <strong>5 (Info)</strong>.  
+            My run generated <strong>1,037 entries</strong> across multiple Apex classes in the Gigaclear org!
+          </p>
+        </div>
+
+        <div>
+          <h2 class="text-2xl font-bold mb-2">7. Takeaways</h2>
+          <p>✅ PMD helps write cleaner Apex code.</p>
+          <p>✅ Custom rulesets enforce Salesforce best practices.</p>
+          <p>✅ Reports in CSV/XML/HTML make reviewing easy.</p>
+          <p class="mt-3">Integrating PMD in your workflow means fewer bugs, better performance, and a happier dev team 🚀</p>
+        </div>
+      </section>
+    </div>
+
+    <hr class="my-10" />
+    <footer class="my-8 text-center font-serif text-gray-600">
+      <p>Crafted with ❤️ by Bhavya Khandelwal</p>
+    </footer>
+  </body>
+</html>
