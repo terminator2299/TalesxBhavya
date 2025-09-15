@@ -167,6 +167,7 @@ I welcome contributions to improve the blog experience! Here's how you can help:
 - [ ] **Social Sharing** - Easy content sharing
 - [ ] **Archive Section** - Organized post history
 - [ ] **Tags System** - Better content categorization
+- [ ] **Like Functionality** - Show number of likes on each blog
 
 
 ## 📄 License
